@@ -1,5 +1,6 @@
 'use client';
 
+import { use } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getJSON } from '@/lib/api';
 import { logEvent } from '@/lib/log';
@@ -23,13 +24,13 @@ interface ThreadMetadata {
 }
 
 interface ThreadPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default function ThreadPage({ params }: ThreadPageProps) {
-  const { id } = params;
+  const { id } = use(params);
 
   const { data: thread, isLoading, error } = useQuery<ThreadMetadata>({
     queryKey: ['thread', id],

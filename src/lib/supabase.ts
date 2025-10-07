@@ -10,7 +10,12 @@ export const supabase = {
     signInWithPassword: async () => ({ data: null, error: { message: 'Supabase not configured yet' } }),
     signOut: async () => ({ error: null }),
     getUser: async () => ({ data: { user: null }, error: null }),
-    getSession: async () => ({ data: { session: null }, error: null })
+    getSession: async () => ({ 
+      data: { 
+        session: null 
+      }, 
+      error: null 
+    })
   }
 }
 
