@@ -39,7 +39,7 @@ export const getSupabaseSession = async () => {
 
 export const hasValidSupabaseSession = async (): Promise<boolean> => {
   const { data } = await supabase.auth.getSession();
-  return !!(data.session && (data.session as any)?.access_token);
+  return !!(data.session && typeof data.session === 'object' && data.session !== null && 'access_token' in data.session);
 };
 
 // Guest session management
