@@ -6,8 +6,8 @@
 // Temporary mock supabase for development
 export const supabase = {
   auth: {
-    signUp: async () => ({ data: null, error: { message: 'Supabase not configured yet' } }),
-    signInWithPassword: async () => ({ data: null, error: { message: 'Supabase not configured yet' } }),
+    signUp: async (_credentials: any) => ({ data: null, error: { message: 'Supabase not configured yet' } }),
+    signInWithPassword: async (_credentials: any) => ({ data: null, error: { message: 'Supabase not configured yet' } }),
     signOut: async () => ({ error: null }),
     getUser: async () => ({ data: { user: null }, error: null }),
     getSession: async () => ({ 
