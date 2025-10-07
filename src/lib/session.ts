@@ -33,13 +33,13 @@ export const clearSession = (): void => {
 
 // Supabase session management
 export const getSupabaseSession = async () => {
-  const { session, error } = await supabase.auth.getSession();
-  return { session, error };
+  const { data, error } = await supabase.auth.getSession();
+  return { session: data.session, error };
 };
 
 export const hasValidSupabaseSession = async (): Promise<boolean> => {
-  const { session } = await supabase.auth.getSession();
-  return !!session?.access_token;
+  const { data } = await supabase.auth.getSession();
+  return !!data.session?.access_token;
 };
 
 // Guest session management

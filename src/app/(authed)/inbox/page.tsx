@@ -4,8 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getJSON } from '@/lib/api';
 import { logEvent } from '@/lib/log';
 import { MOCK_CONFIG } from '@/lib/mock';
-import { Button, Badge, LoadingSpinner, PageContainer, GroupedInbox } from '@/components';
-import Link from 'next/link';
+import { Button, LoadingSpinner, PageContainer, GroupedInbox } from '@/components';
 
 interface HealthStatus {
   status: string;

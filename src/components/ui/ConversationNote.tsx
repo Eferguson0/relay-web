@@ -10,7 +10,7 @@ interface ConversationNoteProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const ConversationNote = forwardRef<HTMLDivElement, ConversationNoteProps>(
-  ({ id, title, lastMessage, time, href, className = '', ...props }, ref) => {
+  ({ title, lastMessage, time, href, className = '', ...props }, ref) => {
     return (
       <Link href={href}>
         <div

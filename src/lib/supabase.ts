@@ -1,6 +1,5 @@
-import { createClient } from '@supabase/supabase-js'
-
 // TODO: Uncomment when Supabase project is ready
+// import { createClient } from '@supabase/supabase-js'
 // const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
 // const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 

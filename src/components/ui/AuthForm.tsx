@@ -25,7 +25,7 @@ export default function AuthForm() {
 
     try {
       if (isSignUp) {
-        const { data, error } = await signUp(email, password);
+        const { error } = await signUp(email, password);
         if (error) {
           setError(error.message);
         } else {
@@ -33,7 +33,7 @@ export default function AuthForm() {
           // Don't redirect immediately for signup - user needs to confirm email
         }
       } else {
-        const { data, error } = await signIn(email, password);
+        const { error } = await signIn(email, password);
         if (error) {
           setError(error.message);
         } else {
@@ -41,7 +41,7 @@ export default function AuthForm() {
           router.push('/onboarding');
         }
       }
-    } catch (err) {
+    } catch {
       setError('An unexpected error occurred');
     } finally {
       setLoading(false);
