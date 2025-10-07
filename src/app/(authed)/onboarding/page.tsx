@@ -35,31 +35,31 @@ export default function OnboardingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <div className="max-w-2xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         {/* Progress Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-3xl font-bold text-gray-900">Welcome to Relay</h1>
-            <span className="text-sm text-gray-500">
+            <h1 className="text-3xl font-bold text-foreground">Welcome to Relay</h1>
+            <span className="text-sm text-muted-foreground">
               Step {currentStepIndex + 1} of {steps.length}
             </span>
           </div>
           
-          <div className="w-full bg-gray-200 rounded-full h-2">
+          <div className="w-full bg-muted rounded-full h-2">
             <div 
-              className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+              className="bg-primary h-2 rounded-full transition-all duration-300"
               style={{ width: `${progress * 100}%` }}
             />
           </div>
         </div>
 
         {/* Current Step */}
-        <div className="bg-white rounded-lg shadow p-6 mb-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+        <div className="bg-card text-card-foreground rounded-lg shadow border-4 border-red-500 p-12 mb-6">
+          <h2 className="text-xl font-semibold text-card-foreground mb-2">
             {currentStep.title}
           </h2>
-          <p className="text-gray-600 mb-6">
+          <p className="text-muted-foreground mb-6">
             {currentStep.description}
           </p>
 
@@ -70,12 +70,12 @@ export default function OnboardingPage() {
                 <input
                   type="text"
                   placeholder="Your name"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground"
                 />
                 <input
                   type="text"
                   placeholder="Company (optional)"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground"
                 />
               </div>
             )}
@@ -85,9 +85,9 @@ export default function OnboardingPage() {
                 <input
                   type="email"
                   placeholder="Email address"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground"
                 />
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-muted-foreground">
                   We&apos;ll help you connect your email to get started with Relay.
                 </p>
               </div>
@@ -95,11 +95,11 @@ export default function OnboardingPage() {
             
             {currentStep.id === 'slack' && (
               <div className="space-y-4">
-                <button className="w-full flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                <button className="w-full flex items-center justify-center px-4 py-2 border border-input rounded-md text-foreground bg-background hover:bg-accent hover:text-accent-foreground">
                   <span className="mr-2">🔗</span>
                   Connect Slack Workspace
                 </button>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-muted-foreground">
                   Connect your Slack workspace to enable Relay&apos;s communication features.
                 </p>
               </div>
@@ -129,14 +129,14 @@ export default function OnboardingPage() {
           <div className="flex justify-between mt-6">
             <button
               onClick={handleSkipStep}
-              className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800"
+              className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground"
             >
               {currentStep.required ? 'Skip for now' : 'Skip'}
             </button>
             
             <button
               onClick={() => handleStepComplete(currentStep.id)}
-              className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring"
             >
               {currentStep.required ? 'Complete' : 'Done'}
             </button>
@@ -144,28 +144,28 @@ export default function OnboardingPage() {
         </div>
 
         {/* Steps Overview */}
-        <div className="bg-white rounded-lg shadow p-6">
-          <h3 className="text-lg font-medium text-gray-900 mb-4">Setup Progress</h3>
+        <div className="bg-card text-card-foreground rounded-lg shadow border-4 border-blue-500 p-12">
+          <h3 className="text-lg font-medium text-card-foreground mb-4">Setup Progress</h3>
           <div className="space-y-3">
             {steps.map((step, index) => (
               <div key={step.id} className="flex items-center">
                 <div className={`w-6 h-6 rounded-full flex items-center justify-center text-sm font-medium ${
                   step.completed 
-                    ? 'bg-green-100 text-green-800' 
+                    ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' 
                     : index === currentStepIndex
-                    ? 'bg-blue-100 text-blue-800'
-                    : 'bg-gray-100 text-gray-600'
+                    ? 'bg-primary/10 text-primary'
+                    : 'bg-muted text-muted-foreground'
                 }`}>
                   {step.completed ? '✓' : index + 1}
                 </div>
                 <div className="ml-3 flex-1">
                   <p className={`text-sm font-medium ${
-                    step.completed ? 'text-green-800' : 'text-gray-900'
+                    step.completed ? 'text-green-800 dark:text-green-300' : 'text-card-foreground'
                   }`}>
                     {step.title}
                     {step.required && <span className="text-red-500 ml-1">*</span>}
                   </p>
-                  <p className="text-xs text-gray-500">{step.description}</p>
+                  <p className="text-xs text-muted-foreground">{step.description}</p>
                 </div>
               </div>
             ))}

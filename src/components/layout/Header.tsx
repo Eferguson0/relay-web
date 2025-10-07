@@ -16,15 +16,15 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>(
     return (
       <div
         ref={ref}
-        className={`bg-white shadow rounded-lg mb-6 ${className}`}
+        className={`bg-card text-card-foreground shadow rounded-lg mb-6 ${className}`}
         {...props}
       >
         <div className="px-4 py-5 sm:p-6">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
+              <h1 className="text-2xl font-bold text-card-foreground">{title}</h1>
               {subtitle && (
-                <p className="mt-1 text-sm text-gray-600">{subtitle}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{subtitle}</p>
               )}
             </div>
             <div className="flex items-center space-x-3">

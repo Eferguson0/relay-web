@@ -1,39 +1,39 @@
-import { HTMLAttributes, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 
-interface PageContainerProps extends HTMLAttributes<HTMLDivElement> {
+interface PageContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '4xl' | '7xl';
   padding?: 'none' | 'sm' | 'md' | 'lg';
+  responsive?: boolean;
 }
 
 const PageContainer = forwardRef<HTMLDivElement, PageContainerProps>(
-  ({ 
-    className = '', 
-    maxWidth = '7xl', 
-    padding = 'md',
-    children, 
-    ...props 
-  }, ref) => {
+  ({ maxWidth = 'lg', padding = 'none', responsive = true, className = '', children, ...props }, ref) => {
     const maxWidthClasses = {
-      sm: 'max-w-sm',
-      md: 'max-w-md', 
-      lg: 'max-w-lg',
-      xl: 'max-w-xl',
-      '2xl': 'max-w-2xl',
-      '4xl': 'max-w-4xl',
-      '7xl': 'max-w-7xl'
+      sm: 'max-w-md',
+      md: 'max-w-lg', 
+      lg: 'max-w-xl',
+      xl: 'max-w-2xl',
+      '2xl': 'max-w-3xl',
+      '4xl': 'max-w-5xl',
+      '7xl': 'max-w-8xl'
     };
     
-    const paddingClasses = {
+    const paddingClasses = responsive ? {
       none: '',
-      sm: 'py-4 px-24',
-      md: 'py-6 px-24 sm:px-36 lg:px-48',
-      lg: 'py-12 px-24 sm:px-36 lg:px-48'
+      sm: 'py-4 px-4 md:py-6 md:px-6',
+      md: 'py-8 px-6 md:py-12 md:px-8',
+      lg: 'py-12 px-6 md:py-16 md:px-32 lg:py-24 lg:px-64'
+    } : {
+      none: '',
+      sm: 'py-4 px-4',
+      md: 'py-8 px-6',
+      lg: 'py-12 px-6'
     };
-    
+
     return (
       <div
         ref={ref}
-        className={`min-h-screen bg-gray-50 ${paddingClasses[padding]} ${className}`}
+        className={`min-h-screen ${paddingClasses[padding]} ${className}`}
         {...props}
       >
         <div className={`mx-auto ${maxWidthClasses[maxWidth]}`}>
