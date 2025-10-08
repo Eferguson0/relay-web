@@ -14,7 +14,7 @@ export default function LoginCard() {
   };
 
   return (
-    <div className="bg-white/10 backdrop-blur-md border border-white/20 p-24 space-y-6 shadow-2xl relative before:absolute before:inset-0 before:border before:border-white/30 before:pointer-events-none" style={{ borderRadius: '2.5rem' }}>
+    <div className="bg-muted backdrop-blur-md border border-border p-24 space-y-6 relative before:absolute before:inset-0 before:border before:border-white/30 before:pointer-events-none" style={{ borderRadius: '.75rem' }}>
       <div className="text-center">
         <h1 className="text-4xl font-semibold text-primary mb-2">
           {process.env.NEXT_PUBLIC_APP_NAME || 'Relay'}
@@ -41,7 +41,7 @@ export default function LoginCard() {
       <Button 
         variant="ghost" 
         size="lg" 
-        className="w-full" 
+        className="w-full text-muted-foreground font-thin" 
         onClick={handleGuestMode}
       >
         Continue as Guest

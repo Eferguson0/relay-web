@@ -10,9 +10,9 @@ const NewDraftButton = forwardRef<HTMLButtonElement, NewDraftButtonProps>(
     return (
       <Button
         ref={ref}
-        variant="outline"
+        variant="primary"
         size="lg"
-        className={`bg-background backdrop-blur-xl border-border hover:bg-secondary/80 transition-all duration-300 shadow-xl text-primary font-medium ${className}`}
+        className={className}
         {...props}
       >
         {children}

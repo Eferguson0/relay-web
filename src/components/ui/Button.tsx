@@ -8,19 +8,19 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className = '', variant = 'primary', size = 'md', loading = false, children, disabled, ...props }, ref) => {
-    const baseClasses = 'inline-flex items-center justify-center rounded-lx font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+    const baseClasses = 'inline-flex items-center justify-center rounded-lx font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
     
     const variants = {
-      primary: 'bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-ring',
-      secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:ring-ring',
-      outline: 'border border-input bg-background text-foreground hover:bg-accent hover:text-accent-foreground focus:ring-ring',
-      ghost: 'text-foreground hover:bg-white/30 hover:text-foreground focus:ring-ring'
+      primary: 'bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-md focus:ring-ring',
+      secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:scale-[1.02] active:scale-[0.98] focus:ring-ring',
+      outline: 'border border-input bg-background text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent-foreground/20 focus:ring-ring',
+      ghost: 'text-foreground hover:bg-muted/50 hover:text-foreground focus:ring-ring'
     };
     
     const sizes = {
-      sm: 'px-3 py-1.5 text-sm',
-      md: 'px-4 py-2 text-sm',
-      lg: 'px-6 py-3 text-base'
+      sm: 'px-4 py-2 text-sm',
+      md: 'px-5 py-2.5 text-sm',
+      lg: 'px-8 py-3.5 text-base'
     };
     
     const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`;
@@ -29,7 +29,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={classes}
-        style={{ borderRadius: '2.5rem' }}
+        style={{ borderRadius: '0.75rem' }}
         disabled={disabled || loading}
         {...props}
       >
