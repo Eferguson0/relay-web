@@ -3,7 +3,6 @@
 import { HTMLAttributes, forwardRef, useState } from 'react';
 
 interface ConversationNoteProps extends HTMLAttributes<HTMLDivElement> {
-  id?: string;
   title?: string;
   placeholder?: string;
   defaultValue?: string;
@@ -13,7 +12,6 @@ interface ConversationNoteProps extends HTMLAttributes<HTMLDivElement> {
 
 const ConversationNote = forwardRef<HTMLDivElement, ConversationNoteProps>(
   ({ 
-    id, 
     title = 'New Message', 
     placeholder = "Paste conversations, meeting notes, transcripts, message drafts, or a brief summary to provide context for the message to be drafted.", 
     defaultValue = '', 

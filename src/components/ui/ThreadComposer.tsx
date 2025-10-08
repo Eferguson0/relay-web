@@ -3,7 +3,7 @@
 import { useState, forwardRef, HTMLAttributes } from 'react';
 import Button from './Button';
 
-interface ThreadComposerProps extends HTMLAttributes<HTMLDivElement> {
+interface ThreadComposerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onSubmit'> {
   onSubmit?: (content: string) => void;
   placeholder?: string;
   disabled?: boolean;
