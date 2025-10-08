@@ -1,5 +1,5 @@
 import { HTMLAttributes, forwardRef } from 'react';
-import ConversationNote from './ConversationNote';
+import ConversationListItem from './ConversationListItem';
 
 interface Conversation {
   id: string;
@@ -42,11 +42,11 @@ const GroupedInbox = forwardRef<HTMLDivElement, GroupedInboxProps>(
               </h2>
             </div>
             
-            {/* Notes with spacing */}
+            {/* Conversation Items with spacing */}
             <div>
               {groupedConversations[date].map((conversation, index) => (
                 <div key={conversation.id} className={index > 0 ? "mt-2" : ""}>
-                  <ConversationNote
+                  <ConversationListItem
                     id={conversation.id}
                     title={conversation.title}
                     lastMessage={conversation.lastMessage}

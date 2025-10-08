@@ -4,7 +4,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center relative">
       {/* Decorative gradient overlay */}
-      <div
+      {/* <div
         aria-hidden="true"
         className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 overflow-hidden blur-3xl z-0"
       >
@@ -15,7 +15,7 @@ export default function LoginPage() {
           }}
           className="relative left-1/2 aspect-[2/1] w-[80vw] max-w-4xl -translate-x-1/2 bg-gradient-to-tr from-gray-600 to-gray-800 opacity-40"
         ></div>
-      </div>
+      </div> */}
       
       {/* Content container */}
       <div className="relative z-[1] w-full max-w-lg px-8">
