@@ -1,10 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getJSON } from '@/lib/api';
 import { logEvent } from '@/lib/log';
 import { MOCK_CONFIG } from '@/lib/mock';
-import { Button, LoadingSpinner, PageContainer, GroupedInbox } from '@/components';
+import { Button, LoadingSpinner, PageContainer, GroupedInbox, NewDraftButton, DraftModal, DraftComposer } from '@/components';
 
 interface HealthStatus {
   status: string;
@@ -14,6 +15,8 @@ interface HealthStatus {
 }
 
 export default function InboxPage() {
+  const [isDraftModalOpen, setIsDraftModalOpen] = useState(false);
+
   const { data: healthStatus, isLoading, error } = useQuery<HealthStatus>({
     queryKey: ['health'],
     queryFn: MOCK_CONFIG.enabled 
@@ -54,6 +57,14 @@ export default function InboxPage() {
 
   return (
     <div className="min-h-screen bg-background relative">
+      {/* Profile button - positioned at top-right corner */}
+      <button className="fixed top-1 right-1 z-50 flex items-center gap-2 px-4 py-2 rounded-xl bg-transparent hover:bg-muted/80 transition-colors">
+        <div className="w-6 h-6 rounded-full bg-muted-foreground text-background flex items-center justify-center font-semibold text-xs">
+          EF
+        </div>
+        <span className="text-sm font-semibold text-muted-foreground">Evan Ferguson</span>
+      </button>
+
       {/* Decorative gradient overlay */}
       {/* <div
         aria-hidden="true"
@@ -74,9 +85,7 @@ export default function InboxPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-semibold text-foreground">Drafts</h1>
-        <Button size="lg" className="!bg-foreground !backdrop-blur-xl !border !border-white hover:!bg-foreground/80 transition-all duration-300 shadow-xl !text-background font-medium">
-          New Draft
-        </Button>
+        <NewDraftButton onClick={() => setIsDraftModalOpen(true)} />
       </div>
 
           {/* Health Status - Hidden in mock mode */}
@@ -129,12 +138,12 @@ export default function InboxPage() {
               <GroupedInbox 
                 className="py-3"
                 conversations={[
-                  { id: '1', title: 'Project Discussion', lastMessage: 'Thanks for the update!', time: '2 min ago', href: '/thread/1', date: 'Today' },
-                  { id: '2', title: 'Meeting Follow-up', lastMessage: 'I\'ll send the notes shortly', time: '1 hour ago', href: '/thread/2', date: 'Today' },
-                  { id: '3', title: 'Client Feedback', lastMessage: 'The changes look great', time: '3 hours ago', href: '/thread/3', date: 'Today' },
-                  { id: '4', title: 'Team Standup', lastMessage: 'Ready for the demo tomorrow', time: '1 day ago', href: '/thread/4', date: 'Yesterday' },
-                  { id: '5', title: 'Design Review', lastMessage: 'The mockups look fantastic', time: '2 days ago', href: '/thread/5', date: 'December 15, 2024' },
-                  { id: '6', title: 'Code Review', lastMessage: 'Great work on the refactoring', time: '3 days ago', href: '/thread/6', date: 'December 14, 2024' }
+                  { id: '1', title: 'Project Discussion', lastMessage: 'Chris', time: '2 min ago', href: '/thread/1', date: 'Today', messageType: 'doc' },
+                  { id: '2', title: 'Meeting Follow-up', lastMessage: 'Design Team', time: '1 hour ago', href: '/thread/2', date: 'Today', messageType: 'email' },
+                  { id: '3', title: 'Client Feedback', lastMessage: 'Mike (Acme Corp)', time: '3 hours ago', href: '/thread/3', date: 'Today', messageType: 'email' },
+                  { id: '4', title: 'Team Standup', lastMessage: 'Engineering Team', time: '1 day ago', href: '/thread/4', date: 'Yesterday', messageType: 'slack' },
+                  { id: '5', title: 'Design Review', lastMessage: 'Laura', time: '2 days ago', href: '/thread/5', date: 'December 15, 2024', messageType: 'doc' },
+                  { id: '6', title: 'Code Review', lastMessage: 'Dev Team', time: '3 days ago', href: '/thread/6', date: 'December 14, 2024', messageType: 'slack' }
                 ]}
               />
             </div>
@@ -157,6 +166,16 @@ export default function InboxPage() {
             )}
         </PageContainer>
       </div>
+
+      {/* Draft Modal */}
+      <DraftModal 
+        isOpen={isDraftModalOpen} 
+        onClose={() => setIsDraftModalOpen(false)}
+      >
+        <DraftComposer 
+          onSubmit={(data) => console.log('Draft data:', data)}
+        />
+      </DraftModal>
     </div>
   );
 }

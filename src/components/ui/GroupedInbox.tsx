@@ -1,5 +1,6 @@
 import { HTMLAttributes, forwardRef } from 'react';
 import ConversationListItem from './ConversationListItem';
+import { MessageType } from './MessageTypeIcon';
 
 interface Conversation {
   id: string;
@@ -8,6 +9,7 @@ interface Conversation {
   time: string;
   href: string;
   date: string;
+  messageType?: MessageType;
 }
 
 interface GroupedInboxProps extends HTMLAttributes<HTMLDivElement> {
@@ -52,6 +54,7 @@ const GroupedInbox = forwardRef<HTMLDivElement, GroupedInboxProps>(
                     lastMessage={conversation.lastMessage}
                     time={conversation.time}
                     href={conversation.href}
+                    messageType={conversation.messageType}
                   />
                 </div>
               ))}

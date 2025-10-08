@@ -18,17 +18,17 @@ export const MOCK_CONFIG = {
   
   getThreadData: (id: string) => {
     const threadContent: Record<string, string> = {
-      '1': "Hi Team,\n\nI wanted to share an update on the dashboard redesign project. The initial mockups are now complete and include all the features we discussed in our last meeting.\n\nThe new design features:\n- Streamlined navigation layout\n- Improved data visualization components\n- Enhanced user experience flow\n- Mobile-responsive design\n\nI'm planning to start development next week. The component specifications are ready, and I believe we can meet our Q1 timeline.\n\nLet me know if you have any questions or feedback on the designs.\n\nBest regards,\nAlice",
+      '1': "PROJECT DISCUSSION SUMMARY\n\nDocument Version: 1.0\nDate: December 18, 2024\nAuthor: Project Team\nStatus: Approved\n\nEXECUTIVE SUMMARY\nThis document provides a comprehensive overview of the project discussion held on December 18, 2024, including key decisions, action items, and next steps for the dashboard development initiative.\n\nKEY DECISIONS\n1. Dashboard Mockups\n   - Initial design mockups completed and approved\n   - All requested features included in wireframes\n   - Additional improvements incorporated based on team feedback\n\n2. Navigation Layout\n   - Final navigation structure approved by stakeholders\n   - User flow optimized for improved usability\n   - Accessibility considerations addressed\n\n3. Development Timeline\n   - Development phase to commence next week\n   - Component specifications to be prepared in parallel\n   - Design handoff meeting scheduled\n\nACTION ITEMS\n• Component specifications preparation (Owner: Design Team, Due: December 20)\n• Development environment setup (Owner: Engineering Team, Due: December 19)\n• Design handoff meeting coordination (Owner: Project Manager, Due: December 19)\n\nAPPENDICES\nAppendix A: Design Mockups\nAppendix B: User Flow Diagrams\nAppendix C: Technical Requirements",
       
-      '2': "Hi Everyone,\n\nFollowing up on yesterday's client meeting. Here are the key decisions and action items:\n\nTimeline Updates:\n- Q1 deliverables confirmed for March 15th\n- Mobile app development starts February 1st\n- User testing scheduled for mid-February\n\nBudget Adjustments:\n- Additional $15k approved for enhanced UI components\n- Mobile app budget remains within scope\n\nNext Steps:\n- I'll send the updated project timeline by Friday\n- Design team will coordinate with development schedule\n- Client review meeting scheduled for next Tuesday\n\nPlease let me know if you need any clarification on these items.\n\nThanks,\nSarah",
+      '2': "From: sarah@company.com\nTo: team@company.com\nSubject: Meeting Follow-up - Q1 Deliverables\n\nHi everyone,\n\nFollowing up on our client meeting yesterday. Here are the main points discussed:\n\n• Timeline for Q1 deliverables\n• Budget adjustments for the mobile app\n• User testing schedule\n\nI'll send the updated timeline by Friday. The mobile app budget looks good with the current scope.\n\nPlease coordinate with the design team to align with the new timeline.\n\nBest regards,\nSarah",
       
-      '3': "Hi,\n\nThank you for the feedback on the latest designs. I'm pleased to hear that you're happy with the overall direction and attention to detail.\n\nI'll implement the requested changes:\n- Increase header size by 20%\n- Add additional call-to-action button in the hero section\n- Maintain the current color scheme as requested\n\nI'll have the revised mockups ready for your review by tomorrow morning. The changes are straightforward and won't impact our development timeline.\n\nLooking forward to your thoughts on the updated designs.\n\nBest,\nDesign Team",
+      '3': "From: mike@acmecorp.com\nTo: you@company.com\nSubject: Client Feedback - Design Changes\n\nHi,\n\nThe changes look great! We really appreciate the attention to detail. A few minor adjustments:\n\n• Could we make the header slightly larger?\n• The color scheme is perfect\n• Maybe add one more call-to-action button\n\nPlease let me know when you have the updated mockups ready.\n\nThanks,\nMike\n\n---\nAcme Corp",
       
-      '4': "Hi Team,\n\nHere's today's standup update:\n\nJenny: Completed API integration yesterday, focusing on error handling today\nAlex: Finished user authentication flow, starting password reset functionality\nDavid: Code review from yesterday completed, beginning dashboard widgets\n\nStatus: On track for Friday demo. No major blockers reported.\n\nQuestions for the team:\n- Any dependencies I should be aware of?\n- Need help with anything specific?\n\nLet's keep the momentum going!\n\nThanks,\nTeam Lead",
+      '4': "💬 #team-standup • General\n\n**Daily standup - December 18th**\n\n:white_check_mark: **Jenny**: Finished the API integration, working on error handling today\n:white_check_mark: **Alex**: Completed the user authentication flow, starting on password reset\n:white_check_mark: **David**: Reviewing the code from yesterday, will start on the dashboard widgets\n\n:rocket: **You**: Great progress everyone! We're on track for the Friday demo. Any blockers to report?\n\n:calendar: **Next**: Continue with current tasks, demo prep for Friday",
       
-      '5': "Hi Design Team,\n\nGreat session today! Here's the summary of our design review:\n\nPositive Feedback:\n- User flow is significantly cleaner\n- Color palette is more professional and accessible\n- Overall direction is solid\n\nRecommendations:\n- Add subtle micro-animations for better UX\n- Adjust mobile spacing for better readability\n- Consider progressive disclosure for complex features\n\nStatus: Designs are approved for development with these minor adjustments.\n\nI'll incorporate the feedback and have final designs ready by end of week.\n\nThanks for the great work!\n\nLaura",
+      '5': "DESIGN REVIEW REPORT\n\nDocument ID: DR-2024-001\nReview Date: December 16, 2024\nReviewer: Laura Thompson\nApproval Status: Approved with Minor Revisions\n\nOBJECTIVE\nThis document summarizes the findings and recommendations from the design review session conducted on December 16, 2024, for the new dashboard interface.\n\nREVIEW PARTICIPANTS\n• Laura Thompson - Senior UX Designer\n• Tom Wilson - Product Manager\n• Design Team Representatives\n\nFEEDBACK SUMMARY\n\nPOSITIVE OBSERVATIONS\n1. User Flow Improvements\n   - Navigation flow significantly improved\n   - User journey streamlined and more intuitive\n   - Accessibility compliance enhanced\n\n2. Visual Design\n   - Color palette deemed professional and accessible\n   - Typography choices appropriate for target audience\n   - Overall aesthetic aligns with brand guidelines\n\nRECOMMENDATIONS FOR IMPROVEMENT\n1. User Experience Enhancements\n   - Implement micro-animations to improve user feedback\n   - Add progressive disclosure for complex features\n\n2. Mobile Optimization\n   - Adjust spacing and touch targets for mobile devices\n   - Optimize layout for smaller screen sizes\n   - Test accessibility on mobile platforms\n\nNEXT STEPS\n1. Incorporate approved feedback into final designs\n2. Prepare comprehensive development handoff package\n3. Schedule final stakeholder review meeting\n4. Begin development phase preparation\n\nAPPROVAL\nThis design review has been approved by all stakeholders with the understanding that minor revisions will be incorporated before final handoff to the development team.\n\nDocument prepared by: Laura Thompson\nDate: December 16, 2024",
       
-      '6': "Hi Team,\n\nCode review completed for PR #42 (User Service Refactoring).\n\nExcellent work! The refactoring has resulted in:\n- Much cleaner architecture\n- Robust error handling\n- Comprehensive test coverage\n\nMinor suggestions for improvement:\n- Consider extracting validation logic to separate utility\n- Standardize logging format across the service\n\nStatus: Approved and ready to merge.\n\nGreat job on this refactoring - it will make future development much easier.\n\nThanks,\nCode Review Team"
+      '6': "💬 #code-review • Development\n\n**Pull Request #42 - Refactoring user service**\n\n:white_check_mark: **Code Review Complete**\n\n:thumbsup: Great work on the refactoring! Much cleaner architecture\n:white_check_mark: The error handling is much more robust now\n:white_check_mark: Tests are comprehensive and well-written\n\n:bulb: **Minor suggestions:**\n• Consider extracting the validation logic into a separate utility\n• The logging could be more consistent\n\n:heavy_check_mark: **Approved!** Ready to merge.\n\n:rocket: Great job team!"
     };
 
     const threadTitles: Record<string, string> = {
@@ -40,6 +40,15 @@ export const MOCK_CONFIG = {
       '6': 'Code Review'
     };
 
+    const threadMessageTypes: Record<string, 'doc' | 'email' | 'slack'> = {
+      '1': 'doc',
+      '2': 'email', 
+      '3': 'email',
+      '4': 'slack',
+      '5': 'doc',
+      '6': 'slack'
+    };
+
     return {
       id,
       title: threadTitles[id] || `Sample Thread ${id}`,
@@ -48,6 +57,7 @@ export const MOCK_CONFIG = {
       updated_at: new Date().toISOString(),
       status: 'active' as const,
       message_count: Math.floor(Math.random() * 20) + 5,
+      message_type: threadMessageTypes[id] || 'doc',
       last_message: {
         content: threadContent[id] || 'This is a sample message from the conversation. The AI assistant is helping with your communication.',
         author: 'relay@assistant.com',

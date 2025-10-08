@@ -1,5 +1,6 @@
 import { HTMLAttributes, forwardRef } from 'react';
 import Link from 'next/link';
+import MessageTypeIcon, { MessageType } from './MessageTypeIcon';
 
 interface ConversationListItemProps extends HTMLAttributes<HTMLDivElement> {
   id: string;
@@ -7,32 +8,21 @@ interface ConversationListItemProps extends HTMLAttributes<HTMLDivElement> {
   lastMessage: string;
   time: string;
   href: string;
+  messageType?: MessageType;
 }
 
 const ConversationListItem = forwardRef<HTMLDivElement, ConversationListItemProps>(
-  ({ title, lastMessage, time, href, className = '', ...props }, ref) => {
+  ({ title, lastMessage, time, href, messageType = 'doc', className = '', ...props }, ref) => {
     return (
       <Link href={href}>
         <div
           ref={ref}
-          className={`flex items-center justify-between py-2 px-4 border border-transparent rounded-full hover:bg-blur-md hover:border-secondary/50 hover:shadow-md cursor-pointer transition-all duration-150 ${className}`}
+          className={`flex items-center justify-between py-2 px-4 border border-transparent rounded-xl hover:bg-blur-md hover:border-secondary/50 hover:shadow-md cursor-pointer transition-all duration-150 ${className}`}
           {...props}
         >
-          {/* Document Icon */}
+          {/* Message Type Icon */}
           <div className="flex-shrink-0 mr-3">
-            <svg 
-              className="w-5 h-5 text-muted-foreground" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
-              />
-            </svg>
+            <MessageTypeIcon type={messageType} size="lg" />
           </div>
           
           <div className="flex-1">
