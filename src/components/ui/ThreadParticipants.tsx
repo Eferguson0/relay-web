@@ -30,8 +30,8 @@ const ThreadParticipants = forwardRef<HTMLDivElement, ThreadParticipantsProps>(
           ))}
           {hiddenCount > 0 && (
             <Badge 
-              variant="outline"
-              className="text-muted-foreground border-muted-foreground/30"
+              variant="default"
+              className="bg-muted text-muted-foreground border border-muted-foreground/30"
             >
               +{hiddenCount} more
             </Badge>
