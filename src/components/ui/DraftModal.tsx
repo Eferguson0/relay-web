@@ -54,7 +54,7 @@ export default function DraftModal({ isOpen, onClose, children }: DraftModalProp
       {/* Modal Container */}
       <div
         ref={modalRef}
-        className="relative w-full max-w-4xl max-h-[85vh] bg-background/90 border border-border rounded-xl shadow-2xl animate-in zoom-in-95 duration-200 flex flex-col"
+        className="relative w-full max-w-4xl max-h-[85vh] bg-background/95 border border-border rounded-xl shadow-2xl animate-in zoom-in-95 duration-200 flex flex-col"
         role="dialog"
         aria-modal="true"
       >

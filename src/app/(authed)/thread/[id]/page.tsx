@@ -136,6 +136,18 @@ export default function ThreadPage({ params }: ThreadPageProps) {
               console.log('Content changed:', content);
               // TODO: Implement autosave functionality
             }}
+            onBold={(selectedText) => {
+              console.log('Bold requested for:', selectedText);
+              // TODO: Implement bold formatting
+            }}
+            onItalic={(selectedText) => {
+              console.log('Italic requested for:', selectedText);
+              // TODO: Implement italic formatting
+            }}
+            onAIRevise={(selectedText, feedback) => {
+              console.log('AI revise requested:', selectedText, 'with feedback:', feedback);
+              // TODO: Implement AI revision
+            }}
             autoFocus={true}
           />
         </div>

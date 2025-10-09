@@ -17,7 +17,7 @@ const ConversationListItem = forwardRef<HTMLDivElement, ConversationListItemProp
       <Link href={href}>
         <div
           ref={ref}
-          className={`flex items-center justify-between py-2 px-4 border border-transparent rounded-xl hover:bg-blur-md hover:border-secondary/50 hover:shadow-md cursor-pointer transition-all duration-150 ${className}`}
+          className={`flex items-center justify-between py-2 px-4 border border-transparent rounded-xl hover:bg-muted cursor-pointer transition-all duration-150 ${className}`}
           {...props}
         >
           {/* Message Type Icon */}

@@ -23,3 +23,7 @@ export { default as ThreadParticipants } from './ThreadParticipants';
 // Login Components
 export { default as LoginCard } from './LoginCard';
 export { default as AuthForm } from './AuthForm';
+
+// Text Formatting Components
+export { default as TextFormattingToolbar } from './TextFormattingToolbar';
+export { default as AIFeedbackModal } from './AIFeedbackModal';
