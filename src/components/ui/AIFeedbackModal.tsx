@@ -25,7 +25,13 @@ const AIFeedbackModal = forwardRef<HTMLDivElement, AIFeedbackModalProps>(
       const textareaRect = textarea.getBoundingClientRect();
       
       // Calculate approximate position based on where selection ENDS
-      const textUpToSelectionEnd = textarea.value.substring(0, end);
+      // Handle case where selection includes newline character (triple-click)
+      let adjustedEnd = end;
+      if (textarea.value[end - 1] === '\n') {
+        adjustedEnd = end - 1; // Don't include the newline in positioning
+      }
+      
+      const textUpToSelectionEnd = textarea.value.substring(0, adjustedEnd);
       const linesUpToEnd = textUpToSelectionEnd.split('\n');
       const endLine = linesUpToEnd.length - 1; // Use the line where selection ends
       const endLineText = linesUpToEnd[endLine] || ''; // Text on the line where selection ends
@@ -94,6 +100,7 @@ const AIFeedbackModal = forwardRef<HTMLDivElement, AIFeedbackModalProps>(
         textarea.style.height = `${textarea.scrollHeight}px`;
       }
     }, [aiFeedback]);
+
 
     const handleSubmit = () => {
       if (aiFeedback.trim()) {

@@ -38,6 +38,7 @@ const ConversationNote = forwardRef<HTMLDivElement, ConversationNoteProps>(
   } | null>(null);
   const [showToolbar, setShowToolbar] = useState(false);
   const [showAIModal, setShowAIModal] = useState(false);
+  const [showHighlightedText, setShowHighlightedText] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -149,6 +150,7 @@ const ConversationNote = forwardRef<HTMLDivElement, ConversationNoteProps>(
     const handleShowAIModal = () => {
       setShowAIModal(true);
       setShowToolbar(false);
+      setShowHighlightedText(true);
     };
 
     const handleCloseToolbar = () => {
@@ -161,6 +163,37 @@ const ConversationNote = forwardRef<HTMLDivElement, ConversationNoteProps>(
 
     const handleCloseAIModal = () => {
       setShowAIModal(false);
+      setShowHighlightedText(false);
+    };
+
+    // Render highlighted text when AI modal is open
+    const renderHighlightedContent = () => {
+      if (!showAIModal || !selectionPosition || !showHighlightedText) {
+        return null;
+      }
+
+      const { start, end } = selectionPosition;
+      const beforeText = content.substring(0, start);
+      const selectedText = content.substring(start, end);
+      const afterText = content.substring(end);
+
+      return (
+        <div className="w-full px-3 py-3 text-base leading-relaxed whitespace-pre-wrap"
+          style={{ 
+            fontFamily: 'inherit',
+            lineHeight: '1.6',
+            minHeight: '400px'
+          }}>
+          {beforeText}
+          <span 
+            style={{
+              backgroundColor: 'var(--text-highlight)'
+            }}>
+            {selectedText}
+          </span>
+          {afterText}
+        </div>
+      );
     };
 
     // Auto-resize textarea to fit content
@@ -217,20 +250,42 @@ const ConversationNote = forwardRef<HTMLDivElement, ConversationNoteProps>(
         )}
 
         {/* Editable Text Area - auto-expands with content */}
-        <textarea
-          ref={textareaRef}
-          value={content}
-          onChange={handleChange}
-          onMouseUp={handleMouseUp}
-          placeholder={placeholder}
-          autoFocus={autoFocus}
-          className="w-full px-3 py-3 resize-none focus:outline-none text-base leading-relaxed overflow-hidden"
-          style={{ 
-            fontFamily: 'inherit',
-            lineHeight: '1.6',
-            minHeight: '400px'
-          }}
-        />
+        {showAIModal && showHighlightedText && selectionPosition ? (
+          <div className="relative">
+            {/* Hidden textarea for functionality */}
+            <textarea
+              ref={textareaRef}
+              value={content}
+              onChange={handleChange}
+              onMouseUp={handleMouseUp}
+              placeholder={placeholder}
+              autoFocus={autoFocus}
+              className="absolute inset-0 w-full px-3 py-3 resize-none focus:outline-none text-base leading-relaxed overflow-hidden opacity-0 pointer-events-none"
+              style={{ 
+                fontFamily: 'inherit',
+                lineHeight: '1.6',
+                minHeight: '400px'
+              }}
+            />
+            {/* Visible highlighted content */}
+            {renderHighlightedContent()}
+          </div>
+        ) : (
+          <textarea
+            ref={textareaRef}
+            value={content}
+            onChange={handleChange}
+            onMouseUp={handleMouseUp}
+            placeholder={placeholder}
+            autoFocus={autoFocus}
+            className="w-full px-3 py-3 resize-none focus:outline-none text-base leading-relaxed overflow-hidden"
+            style={{ 
+              fontFamily: 'inherit',
+              lineHeight: '1.6',
+              minHeight: '400px'
+            }}
+          />
+        )}
         
         {/* Text Formatting Toolbar */}
         {showToolbar && selectionPosition && (

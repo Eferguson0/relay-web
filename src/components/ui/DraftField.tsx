@@ -12,7 +12,7 @@ const DraftField = forwardRef<HTMLTextAreaElement, DraftFieldProps>(
     return (
       <div className="space-y-2">
         {/* Label */}
-        <label className="block text-sm text-muted-foreground font-light">
+        <label className="block text-sm text-primary font-medium">
           {label}
         </label>
         

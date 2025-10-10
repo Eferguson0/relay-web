@@ -60,9 +60,9 @@ export default function InboxPage() {
       {/* Profile button - positioned at top-right corner */}
       <button className="absolute top-1 right-1 z-50 flex items-center gap-2 px-4 py-2 rounded-xl bg-transparent hover:bg-muted/80 transition-colors">
         <div className="w-6 h-6 rounded-full bg-muted-foreground text-background flex items-center justify-center font-semibold text-xs">
-          EF
+          JD
         </div>
-        <span className="text-sm font-semibold text-muted-foreground">Evan Ferguson</span>
+        <span className="text-sm font-semibold text-muted-foreground">John Doe</span>
       </button>
 
       {/* Decorative gradient overlay */}

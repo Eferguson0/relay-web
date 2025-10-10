@@ -31,7 +31,7 @@ export default function DraftComposer({ onSubmit }: DraftComposerProps) {
         {/* Context Field - Larger */}
         <DraftField
           label="Context"
-          rows={10}
+          rows={14}
           placeholder="Paste conversations, meeting notes, transcripts, message drafts, or a brief summary to provide context for the message to be drafted."
           value={context}
           onChange={(e) => setContext(e.target.value)}
@@ -40,7 +40,7 @@ export default function DraftComposer({ onSubmit }: DraftComposerProps) {
         {/* Instructions Field - Smaller */}
         <DraftField
           label="Instructions"
-          rows={3}
+          rows={2}
           placeholder="E.g., summarize the key points, create an action plan, ask for clarification..."
           value={instructions}
           onChange={(e) => setInstructions(e.target.value)}

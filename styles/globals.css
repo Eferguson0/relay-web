@@ -56,6 +56,7 @@ html {
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --text-highlight: #B4D7FF;
     /* --background-radial: radial-gradient(ellipse at center, #0a1428 0%, #060d18 40%, #000000 100%); */
   }
   .dark {
@@ -91,6 +92,7 @@ html {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --text-highlight: #355172;
     --background-radial: #121212;
 
   }
